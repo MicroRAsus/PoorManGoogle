@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '/../../Client/files')));
 // Put all API endpoints under '/api'
 app.post('/api/query', (req, res) => {
 	//res.setHeader('Content-Type', 'application/json');
-	exec(`./Server/src/query ${req.body.q}`, (err, stdout, stderr) => {
+	exec(`./Server/src/query '${req.body.q}'`, (err, stdout, stderr) => {
 		if (err) {
     		// node couldn't execute the command
 			console.log(`Query faied`);
