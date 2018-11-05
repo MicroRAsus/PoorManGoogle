@@ -20,8 +20,7 @@ app.post('/api/query', (req, res) => {
 	});
 });
 
-//The "catchall" handler: for any request that doesn't
-//match one above, send back React's index.html file.
+//The "catchall" handler: for any request that doesn't routes above
 app.get('*', (req, res) => {
 	res.status(404).send("404! Page not found!")
 });
