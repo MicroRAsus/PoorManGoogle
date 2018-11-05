@@ -8,6 +8,11 @@ app.use(bodyParser.json());
 //Serve static files
 app.use(express.static('./client/build'));
 
+//go to search engine first page
+app.get('/', (req, res) => {
+	res.sendFile('./client/build/index.html');
+});
+
 //Query api
 app.post('/api/query', (req, res) => {
 	res.setHeader('Content-Type', 'application/json');
@@ -20,9 +25,9 @@ app.post('/api/query', (req, res) => {
 	});
 });
 
-//The "catchall" handler: for any request that doesn't routes above
+//The "catchall" handler: for any request that doesn't match any routes above
 app.get('*', (req, res) => {
-	res.sendFile('./client/build/index.html');
+	res.status(404).send("404! Page not found!")
 });
 
 const port = process.env.PORT || 5000;
