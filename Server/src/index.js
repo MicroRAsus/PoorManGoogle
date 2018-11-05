@@ -6,12 +6,12 @@ const app = express();
 app.use(bodyParser.json());
 
 //Serve static files
-app.use('/static', express.static('./Client/public'));
+app.use('/static', express.static('./client/public'));
 
 //Query api
 app.post('/api/query', (req, res) => {
 	res.setHeader('Content-Type', 'application/json');
-	exec(`./Server/bin/query '${req.body.q}'`, (err, stdout, stderr) => { //no need to be sanitized as it's wrapped around single quotes
+	exec(`./server/bin/query '${req.body.q}'`, (err, stdout, stderr) => { //no need to be sanitized as it's wrapped around single quotes
 		if (err) {//error occured executing query binary
     		res.status(500).send({ });
 			return;
@@ -22,7 +22,7 @@ app.post('/api/query', (req, res) => {
 
 //The "catchall" handler: for any request that doesn't routes above
 app.get('*', (req, res) => {
-	res.status(404).send("404! Page not found!" + `${process.env.PORT}`)
+	res.status(404).send("404! Page not found!")
 });
 
 const port = process.env.PORT || 5000;
