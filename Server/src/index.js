@@ -18,8 +18,9 @@ app.post('/api/query', (req, res) => {
 			console.log(`Query faied`);
 			console.log(req.body.q);
 			console.log(stderr);
+			console.log(stdout.toString());
     		//res.send({ });
-			res.send('failed');
+			res.send('failed\nstdout\nstderr\nreq.body.q');
 			return;
   		}
 		res.send("success");
