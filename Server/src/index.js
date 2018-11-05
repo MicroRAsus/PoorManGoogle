@@ -22,7 +22,7 @@ app.post('/api/query', (req, res) => {
 
 //The "catchall" handler: for any request that doesn't routes above
 app.get('*', (req, res) => {
-	res.status(404).send("404! Page not found!")
+	res.status(404).send("404! Page not found!" + `process.env.PORT`)
 });
 
 const port = process.env.PORT || 5000;
