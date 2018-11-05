@@ -20,7 +20,7 @@ app.post('/api/query', (req, res) => {
 			console.log(stderr);
 			console.log(stdout.toString());
     		//res.send({ });
-			res.send('failed\nstdout\nstderr\nreq.body.q');
+			res.send('failed\n${stdout}\n${stderr}\n${req.body.q}');
 			return;
   		}
 		res.send("success");
