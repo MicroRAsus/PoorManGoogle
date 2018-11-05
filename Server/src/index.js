@@ -23,7 +23,7 @@ app.post('/api/query', (req, res) => {
 			res.send(`failed\n${stdout}\n${stderr}\n${req.body.q}`);
 			return;
   		}
-		res.send("success");
+		res.send(stdout);
 	});
 });
 
