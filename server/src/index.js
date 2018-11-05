@@ -1,13 +1,12 @@
 const express = require('express');
 const { exec } = require('child_process');
-const path = require('path');
 const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json());
 
 //Serve static files
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static('./client/build'));
 
 //Query api
 app.post('/api/query', (req, res) => {
@@ -23,7 +22,7 @@ app.post('/api/query', (req, res) => {
 
 //The "catchall" handler: for any request that doesn't routes above
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname+'/client/build/index.html'));
+	res.sendFile('./client/build/index.html');
 });
 
 const port = process.env.PORT || 5000;
