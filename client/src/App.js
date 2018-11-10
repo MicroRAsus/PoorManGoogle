@@ -18,12 +18,11 @@ class App extends Component {
     	return this.state.q.length > 0;
   	}
 
-	handleChange = event => {
-		this.setState({ q: event.target.value });
+	handleChange = (query) => {
+		this.setState({ q: query });
   	}
 
-	handleSubmit = event => {
-    	event.preventDefault();
+	handleSubmit = () => {
 		axios.post('/api/query', {
     		q: this.state.q
 		})
@@ -42,8 +41,8 @@ class App extends Component {
 				<div className="App-bar">
 					<img src={logo} className="App-logo" alt="logo" />
 					<QueryForm onSubmit={this.handleSubmit} validateForm={this.validateForm} handleChange={this.handleChange} q={this.state.q} />
-					{this.state.r.toString()}
 				</div>
+				{this.state.r.toString()}
 			</div>
     	);
 	}
