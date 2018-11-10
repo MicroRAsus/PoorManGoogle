@@ -4,42 +4,25 @@ import { Button, FormGroup, FormControl } from "react-bootstrap";
 class QueryForm extends Component {
 	constructor(props) {
 	    super(props);
-
-	    this.state = {
-	      q: "",
-		  r:[]
-	    };
-  	}
-
-	validateForm() {
-    	return this.state.q.length > 0;
-  	}
-
-	handleChange = event => {
-		this.setState({ q: event.target.value });
-  	}
-
-	handleSubmit = event => {
-    	event.preventDefault();
   	}
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.props.handleSubmit}>
 				<FormGroup controlId="query" bsSize="large">
 					<FormControl
 						autoFocus
 						type="text"
-						value={this.state.q}
+						value={this.props.q}
 						placeholder="Enter your query here..."
-						onChange={this.handleChange}
+						onChange={this.props.handleChange}
 					/>
 				</FormGroup>
 				<Button
 					block
 					bsSize="medium"
 					type="submit"
-					disabled={!this.validateForm()}
+					disabled={!this.props.validateForm}
 				>
 					Nuke!
 				</Button>
