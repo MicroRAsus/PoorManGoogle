@@ -28,7 +28,7 @@ class App extends Component {
 		})
 		.then(function (response) {
 			this.setState({r: response.data.r});
-			console.log(response);
+			console.log(this.state.r);
 		})
 		.catch(function (error) {
 			console.log(error);
@@ -42,7 +42,7 @@ class App extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<QueryForm onSubmit={this.handleSubmit} validateForm={this.validateForm} handleChange={this.handleChange} q={this.state.q} />
 				</div>
-				{this.state.r.toString()}
+				<h1>{this.state.r.toString()}</h1>
 			</div>
     	);
 	}
