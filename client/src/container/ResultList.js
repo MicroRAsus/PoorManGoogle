@@ -1,4 +1,4 @@
-export const ResultList = (props) => {
+export default const ResultList = (props) => {
 	return (
 		<div>
 

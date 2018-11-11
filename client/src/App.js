@@ -44,8 +44,8 @@ class App extends Component {
 				<div className="App-bar">
 					<img src={logo} className="App-logo" alt="logo" />
 					<QueryForm onSubmit={this.handleSubmit} validateForm={this.validateForm} handleChange={this.handleChange} q={this.state.q} />
+					<h1>{this.state.r.toString()}</h1>
 				</div>
-				<h1>{this.state.r.toString()}</h1>
 			</div>
     	);
 	}
