@@ -27,8 +27,11 @@ class App extends Component {
     		q: this.state.q
 		})
 		.then(function (response) {
-			this.setState({r: [...response.data.r]});
+			this.setState(prevState => ({
+				r: [...response.data.r]
+			}));
 			console.log(this.state.r);
+			console.log(response.data.r);
 		})
 		.catch(function (error) {
 			console.log(error);
