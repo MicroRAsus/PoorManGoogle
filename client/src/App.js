@@ -27,7 +27,7 @@ class App extends Component {
     		q: this.state.q
 		})
 		.then(function (response) {
-			this.setState({r: response.data.r});
+			this.setState({r: [...response.data.r]});
 			console.log(this.state.r);
 		})
 		.catch(function (error) {
