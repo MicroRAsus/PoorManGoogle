@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import QueryForm from './container/QueryForm.js';
 import axios from 'axios';
+import ResultList from './container/ResultList.js';
 
 class App extends Component {
 	constructor(props) {
@@ -44,7 +45,7 @@ class App extends Component {
 				<div className="App-bar">
 					<img src={logo} className="App-logo" alt="logo" />
 					<QueryForm onSubmit={this.handleSubmit} validateForm={this.validateForm} handleChange={this.handleChange} q={this.state.q} />
-					<h1>{this.state.r.toString()}</h1>
+					<ResultList results={this.state.r}/>
 				</div>
 			</div>
     	);
