@@ -1,0 +1,14 @@
+.Result {
+  width:400px;
+}
+
+.Result-left {
+  width:200px;
+  float:left;
+}
+
+.Result-right {
+  width:200px;
+  float:right;
+  color: blue;
+}
