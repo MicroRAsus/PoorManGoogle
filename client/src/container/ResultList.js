@@ -1,9 +1,12 @@
-import "./Result.js";
+import React from "react";
+import Result from "./Result.js";
 
-export default const ResultList = (props) => {
+const ResultList = (props) => {
 	return (
 		<div>
-			{this.props.results.map(result => <Result {...result}/>)}
+			{props.results ? props.results.map(result => <Result {...result}/>) : undefined}
 		</div>
 	);
 }
+
+export default ResultList;
