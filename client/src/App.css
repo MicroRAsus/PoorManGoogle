@@ -16,7 +16,6 @@
 
 .App-bar {
 	position: relative;
-    top: -250px;
 }
 
 @keyframes App-logo-spin {
