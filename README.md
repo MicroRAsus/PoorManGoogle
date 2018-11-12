@@ -1,5 +1,3 @@
 # Poor-man-s-Google-search-engine
-Refactor TODO: change indexer pass 2 algorithm's alphabetically first buffer data structure from an simple array to a priority queue.
-
-Backend: Currently only have a indexing, ranking, query processing algorithms done.
-Frontend: Planning to use ReactJS.
+Visit app deployed on heroku: https://poor-man-google-search-engine.herokuapp.com/
+Since I deployed my app on a free account, the app instance may be in sleep mode after certain inactive time, so it would take some time for the page to load.
