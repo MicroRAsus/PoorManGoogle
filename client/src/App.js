@@ -13,6 +13,10 @@ class App extends Component {
 			q: "",
 			r:[]
 	    };
+
+		this.validateForm = this.validateForm.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
   	}
 
 	validateForm() {
@@ -27,14 +31,12 @@ class App extends Component {
 		axios.post('/api/query', {
     		q: this.state.q
 		})
-		.then(function (response) {
-			this.setState(prevState => ({
-				r: [...response.data.r]
-			}));
-			console.log(this.state.r);
-			console.log(response.data.r);
+		.then((response) => {
+			this.setState({
+				r: response.data.r
+			});
 		})
-		.catch(function (error) {
+		.catch((error) => {
 			console.log(error);
 		});
   	}

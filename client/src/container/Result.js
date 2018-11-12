@@ -5,7 +5,6 @@ const Result = (props) => {
 	return (
 		<div>
 			 <Link to={"/files/" + props.url}>{props.url}</Link>
-			 <h1>Weight: {props.w}</h1>
 		</div>
 	);
 }
