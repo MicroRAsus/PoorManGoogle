@@ -28,7 +28,7 @@ class App extends Component {
   	}
 
 	handleSubmit = () => {
-		axios.post('https://translation.googleapis.com/language/translate/v2?key=AIzaSyAG3R4bsCF_nHJ5Un83f1ZVqRwv3KRa9vo', {
+		axios.post('https://translation.googleapis.com/language/translate/v2?key=APIkey', {
 			q: this.state.q, format: 'html', source: 'zh-CN', target: 'en'}).then((response) => {
 				axios.post('/api/query', {
 		    		q: response.data.data.translations[0].translatedText
