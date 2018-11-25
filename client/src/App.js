@@ -28,17 +28,23 @@ class App extends Component {
   	}
 
 	handleSubmit = () => {
-		axios.post('/api/query', {
-    		q: this.state.q
-		})
-		.then((response) => {
-			this.setState({
-				r: response.data.r
+		axios.post('https://translation.googleapis.com/language/translate/v2?key=AIzaSyCqxRghv5sccMfL8IPMV2K9Xd3kxQvHamM', {
+			q: this.state.q, format: 'html', source: 'zh-CN', target: 'en'}).then((response) => {
+				axios.post('/api/query', {
+		    		q: response.data.data.translations[0].translatedText
+				})
+				.then((response) => {
+					this.setState({
+						r: response.data.r
+					});
+				});
+			}).catch((error) => {
+				console.log(error);
 			});
-		})
-		.catch((error) => {
-			console.log(error);
-		});
+
+
+
+
   	}
 
 	render() {
